@@ -39,6 +39,10 @@ const submitHandler = (event) => {
 
 	// then save the mainpulated version of the products array back in local storage
 	localStorage.setItem('products', JSON.stringify(products))
+	// clears the edit-product from localStorage
+	localStorage.removeItem('edit-product')
+	// sends user back to index page
+	location.href = '/localStorageShop/index.html'
 }
 
 // event listener for submit button

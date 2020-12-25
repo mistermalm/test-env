@@ -13,6 +13,7 @@ const renderProduct = (product, index) => {
 			</li>
         </div>`
 }
+
 // refererar till products diven
 let productsDiv = document.getElementById('products')
 // hämtar data från local storage
@@ -27,20 +28,16 @@ if (products == null) {
 		productsDiv.appendChild(productUl)
 	})
 }
-const edit = (event) => {
+
+const editButtonHandler = (event) => {
 	let productInfo = event.target.parentNode.parentNode.children
-	let id = Number(event.target.id)
-	let image = productInfo[0].children[0].src
-	let title = productInfo[1].innerText
-	let description = productInfo[2].innerText
-	let price = Number(productInfo[3].innerText)
 
 	let editObject = {
-		id,
-		image,
-		title,
-		description,
-		price
+		id: Number(event.target.id),
+		image: productInfo[0].children[0].src,
+		title: productInfo[1].innerText,
+		description: productInfo[2].innerText,
+		price: Number(productInfo[3].innerText)
 	}
 
 	localStorage.setItem('edit-product', JSON.stringify(editObject))
@@ -48,5 +45,5 @@ const edit = (event) => {
 }
 let editButton = document.querySelectorAll('.edit-button')
 for (let i = 0; i < editButton.length; i++) {
-	editButton[i].addEventListener('click', edit)
+	editButton[i].addEventListener('click', editButtonHandler)
 }
