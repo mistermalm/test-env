@@ -14,7 +14,8 @@ const createProduct = (e) => {
 		image: document.getElementById('img-src').value,
 		title: document.getElementById('title').value,
 		description: document.getElementById('description').value,
-		price: Number(document.getElementById('price').value)
+		price: Number(document.getElementById('price').value),
+		quantity: Number(document.getElementById('quantity').value)
 	}
 
 	let ls = JSON.parse(localStorage.getItem('products'))
